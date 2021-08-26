@@ -132,7 +132,7 @@ export default new Vuex.Store({
     fetchCategories(context){
       axios({
         method:"GET",
-        url: "/categories"
+        url: "/customers/categories"
       })
       .then(({data})=>{
         context.commit("FETCH_CATEGORIES",data)

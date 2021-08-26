@@ -45,8 +45,8 @@ export default {
     // end of transcription
     recognition.addEventListener("end", () => {
         this.transcription_.push(this.runtimeTranscription_);
-        this.runtimeTranscription_ = "";
         this.cari += `${this.runtimeTranscription_} `
+        this.runtimeTranscription_ = "";
         recognition.stop();
     });
     recognition.start();

@@ -3,13 +3,26 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import VueSocketIO from 'vue-socket.io'
+// const io = require("socket.io-client");
 
-Vue.config.productionTip = false
+// const socket = io("https://cariobat-server.herokuapp.com", {
+//   withCredentials: true,
+//   extraHeaders: {
+//     "my-custom-header": "abcd"
+//   }
+// });
+// Vue.config.productionTip = false
+
 Vue.use(new VueSocketIO({
   debug: true,
-  connection: 'http://localhost:3000',
-  })
-);
+  connection: 'https://cariobat-server.herokuapp.com',
+  vuex: {
+    store,
+    actionPrefix: 'SOCKET_',
+    mutationPrefix: 'SOCKET_'
+  },
+}));
+// Vue.use(VueSocketIO, socket);
 
 new Vue({
   router,
